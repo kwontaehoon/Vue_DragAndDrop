@@ -3,7 +3,7 @@
     <div>{{ title }}</div>
 </template>
 
-<script lang="tsx">
+<script lang="jsx">
     export default {
         name: 'Container',
         props: {

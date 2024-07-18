@@ -5,7 +5,7 @@
     <Container title="title props"/>
 </template>
 
-<script lang="tsx">
+<script lang="jsx">
     import { store } from '@/store';
     import Container from './Container.vue'
 

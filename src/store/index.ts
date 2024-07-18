@@ -6,3 +6,8 @@ export const store = reactive({
     this.count++
   }
 })
+
+export const addModal = reactive({
+  open: false,
+  content: ''
+})
