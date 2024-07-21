@@ -1,8 +1,9 @@
-<script setup lang="jsx">
+<script setup lang="tsx">
 import { reactive, ref, watch } from 'vue';
 import draggable from 'vuedraggable';
 import Card from './Card.vue'
 import { addModal } from '@/store';
+import { Ref } from 'vue';
 
 const dummy1 = ref([
   'Hamburger',
@@ -24,16 +25,18 @@ const dummy3 = ref([
   'cccccccccccc'
 ])
 
-const plus = (params) => {
-  console.log('params: ', params[0])
-
+const plus = (params:string[], id:number) => {
   addModal.open = true
-  
+  addModal.id = id
 }
 
 watch(addModal, () => {
   if(!addModal.open && addModal.content){
-    console.log(11);
+    switch(addModal.id){
+      case 0: dummy1.value = [...dummy1.value, addModal.content]; break;
+      case 1: dummy2.value = [...dummy2.value, addModal.content]; break;
+      case 2: dummy3.value = [...dummy3.value, addModal.content]; break;
+    }
   }
 })
 
@@ -49,7 +52,7 @@ watch(addModal, () => {
           <Card :title="title"/>
         </template>
       </draggable>
-      <div class="my-4 bg-white rounded-full px-2 py-1" @click="plus(dummy2)">+</div>
+      <div class="my-4 bg-white rounded-full w-6 h-6 cursor-pointer shadow flex justify-center items-center" @click="plus(dummy2, 0)">+</div>
     </div>
 
     <div class="flex-1 flex items-center flex-col">
@@ -58,7 +61,7 @@ watch(addModal, () => {
           <Card :title="title"/>
         </template>
       </draggable>
-      <div class="my-4 bg-white rounded-full px-2 py-1" @click="plus(dummy2)">+</div>
+      <div class="my-4 bg-white rounded-full w-6 h-6 cursor-pointer shadow flex justify-center items-center" @click="plus(dummy2, 1)">+</div>
     </div>
 
     <div class="flex-1 flex items-center flex-col">
@@ -67,7 +70,7 @@ watch(addModal, () => {
           <Card :title="title"/>
         </template>
       </draggable>
-      <div class="my-4 bg-white rounded-full px-2 py-1" @click="plus(dummy2)">+</div>
+      <div class="my-4 bg-white rounded-full w-6 h-6 cursor-pointer shadow flex justify-center items-center" @click="plus(dummy2, 2)">+</div>
     </div>
   </div>
 </template>
