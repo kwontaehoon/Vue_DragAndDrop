@@ -24,15 +24,17 @@ const dummy3 = ref([
   'cccccccccccc'
 ])
 
-const plus = (params) => {
+const plus = (params, id) => {
   console.log('params: ', params[0])
 
   addModal.open = true
+  addModal.id = id
   
 }
 
 watch(addModal, () => {
-  if(!addModal.open && addModal.content){
+  console.log(addModal.open, addModal.content);
+  if(!addModal.open && addModal.content !== ''){
     console.log(11);
   }
 })
@@ -49,7 +51,7 @@ watch(addModal, () => {
           <Card :title="title"/>
         </template>
       </draggable>
-      <div class="my-4 bg-white rounded-full px-2 py-1" @click="plus(dummy2)">+</div>
+      <div class="my-4 bg-white rounded-full px-2 py-1" @click="plus(dummy2, 0)">+</div>
     </div>
 
     <div class="flex-1 flex items-center flex-col">
@@ -58,7 +60,7 @@ watch(addModal, () => {
           <Card :title="title"/>
         </template>
       </draggable>
-      <div class="my-4 bg-white rounded-full px-2 py-1" @click="plus(dummy2)">+</div>
+      <div class="my-4 bg-white rounded-full px-2 py-1" @click="plus(dummy2, 1)">+</div>
     </div>
 
     <div class="flex-1 flex items-center flex-col">
@@ -67,7 +69,7 @@ watch(addModal, () => {
           <Card :title="title"/>
         </template>
       </draggable>
-      <div class="my-4 bg-white rounded-full px-2 py-1" @click="plus(dummy2)">+</div>
+      <div class="my-4 bg-white rounded-full px-2 py-1" @click="plus(dummy2, 2)">+</div>
     </div>
   </div>
 </template>

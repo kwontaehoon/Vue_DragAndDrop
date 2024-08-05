@@ -8,6 +8,7 @@ export const store = reactive({
 })
 
 export const addModal = reactive({
+  id: 0,
   open: false,
   content: ''
 })
