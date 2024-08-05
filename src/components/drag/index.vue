@@ -43,7 +43,6 @@
       },
       methods: {
         log(event) {
-          console.log(event)
         },
       },
     })

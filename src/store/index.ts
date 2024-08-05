@@ -1,14 +1,16 @@
-import { reactive } from 'vue'
+import { Reactive, reactive } from 'vue'
+import { storeType, addModalType } from './type'
 
-export const store = reactive({
+
+export const store:Reactive<storeType> = reactive({
   count: 0,
   increment() {
     this.count++
   }
 })
 
-export const addModal = reactive({
-  id: 0,
+export const addModal:Reactive<addModalType> = reactive({
+  id: null,
   open: false,
   content: ''
 })

@@ -1,8 +1,9 @@
-<script setup lang="jsx">
+<script setup lang="tsx">
 import { reactive, ref, watch } from 'vue';
 import draggable from 'vuedraggable';
 import Card from './Card.vue'
 import { addModal } from '@/store';
+import { Ref } from 'vue';
 
 const dummy1 = ref([
   'Hamburger',
@@ -51,7 +52,7 @@ watch(addModal, () => {
           <Card :title="title"/>
         </template>
       </draggable>
-      <div class="my-4 bg-white rounded-full px-2 py-1" @click="plus(dummy2, 0)">+</div>
+      <div class="my-4 bg-white rounded-full w-6 h-6 cursor-pointer shadow flex justify-center items-center" @click="plus(dummy2, 0)">+</div>
     </div>
 
     <div class="flex-1 flex items-center flex-col">
@@ -60,7 +61,7 @@ watch(addModal, () => {
           <Card :title="title"/>
         </template>
       </draggable>
-      <div class="my-4 bg-white rounded-full px-2 py-1" @click="plus(dummy2, 1)">+</div>
+      <div class="my-4 bg-white rounded-full w-6 h-6 cursor-pointer shadow flex justify-center items-center" @click="plus(dummy2, 1)">+</div>
     </div>
 
     <div class="flex-1 flex items-center flex-col">
@@ -69,7 +70,7 @@ watch(addModal, () => {
           <Card :title="title"/>
         </template>
       </draggable>
-      <div class="my-4 bg-white rounded-full px-2 py-1" @click="plus(dummy2, 2)">+</div>
+      <div class="my-4 bg-white rounded-full w-6 h-6 cursor-pointer shadow flex justify-center items-center" @click="plus(dummy2, 2)">+</div>
     </div>
   </div>
 </template>
