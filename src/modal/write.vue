@@ -22,7 +22,7 @@ import { Ref, ref } from 'vue';
 const value: Ref<string> = ref('')
 
 const close = () => {
-    addModal.content = value
+    addModal.content = ''
     addModal.open = false
 }
 </script>
