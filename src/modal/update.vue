@@ -1,6 +1,6 @@
 <template>
     <div class="h-12 border bg-gray-100 px-5 flex items-center">
-        <div class="flex-1">Title</div>
+        <div class="flex-1">Update</div>
         <div class="flex justify-end" @click="close">x</div>
     </div>
     <div class="p-5">
@@ -15,18 +15,18 @@
 </template>
 
 <script setup lang="tsx">
-import { addModal } from '@/store';
-import { Ref, ref } from 'vue';
+import { updateModal } from '@/store';
+import { ref, Ref } from 'vue';
 
 const value: Ref<string> = ref('')
 
 const close = () => {
-    addModal.content = ''
-    addModal.open = false
+    updateModal.content = ''
+    updateModal.open = false
 }
 
 const complete = () => {
-    addModal.content = value.value
-    addModal.open = false
+
+    updateModal.open = false
 }
 </script>
